@@ -13,15 +13,15 @@
    </head>
    <body>
       <div class="button-container">
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/basket-random.xml')">Basket Random</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/stick-war.xml')">Stick War</button> 
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/ARC.xml')">ARC</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/granny.xml')">Granny</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/granny-2.xml')">Granny 2</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/racing.xml')">Racing</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/runner.xml')">Sprinter Flash</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/minecraft.xml')">Minecraft</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Ports/gunspin.xml')">Gun Spin</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/basket-random.xml')">Basket Random</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/stick-war.xml')">Stick War</button> 
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/ARC.xml')">ARC</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/granny.xml')">Granny</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/granny-2.xml')">Granny 2</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/racing.xml')">Racing</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/runner.xml')">Sprinter Flash</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/minecraft.xml')">Minecraft</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/gunspin.xml')">Gun Spin</button>
           
       </div>
       <script> async function loadFile(url) { try { const response = await fetch(url); const text = await response.text(); const parser = new DOMParser(); const xmlDoc = parser.parseFromString(text, 'application/xml'); const title = xmlDoc.querySelector('ModulePrefs')?.getAttribute('title') || 'Untitled'; const content = xmlDoc.querySelector('Content')?.textContent || ''; const newWin = window.open('about:blank', '_blank'); if (newWin) { newWin.document.open(); newWin.document.write(content); newWin.document.close(); } else { alert('Popup blocked—please allow popups.'); } } catch (e) { console.error('Error loading XML:', e); } } </script> 
