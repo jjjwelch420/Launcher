@@ -13,14 +13,14 @@
    </head>
    <body>
       <div class="button-container">
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/basket-random.xml')">Basket Random</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/stick-war.xml')">Stick War</button> 
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/ARC.xml')">ARC</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/granny.xml')">Granny</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/granny-2.xml')">Granny 2</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/racing.xml')">Racing</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/runner.xml')">Sprinter Flash</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/minecraft.xml')">Minecraft</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/basket-random.xml')">Basket Random</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/stick-war.xml')">Stick War</button> 
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/ARC.xml')">ARC</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/granny.xml')">Granny</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/granny-2.xml')">Granny 2</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/racing.xml')">Racing</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/runner.xml')">Sprinter Flash</button>
+         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/minecraft.xml')">Minecraft</button>
          <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/gunspin.xml')">Gun Spin</button>
           
       </div>
