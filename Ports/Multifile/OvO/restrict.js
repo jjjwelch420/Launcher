@@ -1,19 +1,8 @@
-// Hide page content until user presses Enter and confirms
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.style.display = 'none';
-
-  const waitForEnter = (e) => {
-    if (e.key === 'Enter') {
-      document.removeEventListener('keydown', waitForEnter);
-      if (confirm("Continue?")) {
-        document.body.style.display = 'block';
-      } else {
-        window.location.href = 'about:blank';
-      }
-    }
-  };
-
-  document.addEventListener('keydown', waitForEnter);
+// Show "Continue?" dialog as soon as the page loads
+window.addEventListener('load', () => {
+  if (!confirm("Continue?")) {
+    window.location.href = 'about:blank'; // Redirect if user cancels
+  }
 });
 
 // Warn user before leaving the page
