@@ -70,7 +70,7 @@
       container.appendChild(player);
 
       // Load the SWF
-      player.load("https://archive.org/details/flash_supermario63/download/flash_supermario63/supermario63.swf");
+      player.load("https://github.io/jjjwelch420/Super-Mario-63/Super_Mario_63_2010.swf");
 
       // Optional explicit sizing (CSS above usually suffices)
       player.style.width = "100%";
