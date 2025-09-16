@@ -1,1 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="Google.com" />
+<Content type="html"><![CDATA[
 
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Papa’s Bakeria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Analytics (optional) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MENBM6GSNY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-MENBM6GSNY");
+  </script>
+
+  <!-- Page styles: make the player fill the viewport -->
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #111; /* optional */
+    }
+    #container {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      background: #222; /* optional */
+    }
+    /* Size the stage for a typical 800x600 SWF while keeping it responsive */
+    ruffle-player, .ruffle-player {
+      width: min(100vw, 100%);
+      height: min(100vh, 100%);
+      max-width: 100%;
+      max-height: 100%;
+      aspect-ratio: 4 / 3;
+    }
+  </style>
+
+  <!-- Ruffle (pin a version for stability) -->
+  <script src="https://unpkg.com/@ruffle-rs/ruffle@0.1.0-nightly.2024.9.1/ruffle.js"></script>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+      autoplay: "off",
+      polyfills: true,
+      letterbox: "on",
+      backgroundColor: null,
+      scale: "showAll",
+      allowFullscreen: true,
+      forceScale: true,
+      forceAlign: true,
+      splashScreen: true,
+      wmode: "window",
+      unmuteOverlay: "hidden",
+      quality: "high"
+    };
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      const container = document.getElementById("container");
+      container.appendChild(player);
+
+      // Load the SWF
+      player.load("https://runouw.com/games/sm63/sm63game.swf");
+
+      // Optional explicit sizing (CSS above usually suffices)
+      player.style.width = "100%";
+      player.style.height = "100%";
+    });
+  </script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <!-- jQuery is not used; remove this to reduce load -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> -->
+</body>
+</html>
+
+]]></Content>
+</Module>
