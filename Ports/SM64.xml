@@ -70,7 +70,7 @@
       container.appendChild(player);
 
       // Load the SWF
-      player.load("https://runouw.com/games/sm63/sm63game.swf");
+      player.load("https://archive.org/details/flash_supermario63/download/flash_supermario63/supermario63.swf");
 
       // Optional explicit sizing (CSS above usually suffices)
       player.style.width = "100%";
