@@ -6,8 +6,15 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <style>
+html, body {
+    margin: 0;
+    padding: 0;
+}
+</style>
 </head>
+
 <body>
 <script src="https://cdn.jsdelivr.net/gh/somer-sheff-73/xv@main/ruffle.js"></script>
 
@@ -18,4 +25,5 @@
 </html>
 ]]></Content>
 </Module>
+
 
