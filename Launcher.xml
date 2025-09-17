@@ -13,18 +13,18 @@
    </head>
    <body>
       <div class="button-container">
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/basket-random.xml')">Basket Random</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/stick-war.xml')">Stick War</button> 
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/ARC.xml')">ARC</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/granny.xml')">Granny</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/granny-2.xml')">Granny 2</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/racing.xml')">Racing</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/runner.xml')">Sprinter Flash</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/minecraft.xml')">Minecraft</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/gunspin.xml')">Gun Spin</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/OvO.xml')">OvO</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/Cookie.xml')">Cookie Clicker</button>
-         <button class="fancy-button" onclick="loadFile('https://jjjwelch420.github.io/Launcher/Ports/SM64.xml')">Super Ah 64</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/basket-random.xml')">Basket Random</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/stick-war.xml')">Stick War</button> 
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/ARC.xml')">ARC</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/granny.xml')">Granny</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/granny-2.xml')">Granny 2</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/racing.xml')">Racing</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/runner.xml')">Sprinter Flash</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/minecraft.xml')">Minecraft</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/gunspin.xml')">Gun Spin</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/OvO.xml')">OvO</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/Cookie.xml')">Cookie Clicker</button>
+         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SM64.xml')">Super Ah 64</button>
       </div>
       <script> async function loadFile(url) { try { const response = await fetch(url); const text = await response.text(); const parser = new DOMParser(); const xmlDoc = parser.parseFromString(text, 'application/xml'); const title = xmlDoc.querySelector('ModulePrefs')?.getAttribute('title') || 'Untitled'; const content = xmlDoc.querySelector('Content')?.textContent || ''; const newWin = window.open('about:blank', '_blank'); if (newWin) { newWin.document.open(); newWin.document.write(content); newWin.document.close(); } else { alert('Popup blocked—please allow popups.'); } } catch (e) { console.error('Error loading XML:', e); } } </script> 
    </body>
