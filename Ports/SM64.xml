@@ -12,9 +12,10 @@
 <script src="https://cdn.jsdelivr.net/gh/somer-sheff-73/xv@main/ruffle.js"></script>
 
 <object width="100%" height="100%">
-    <param name="movie" value="https://jjwelch420.github.io/Launcher/Ports/SWF/Super_Mario_63_2010 (1).swf">
-    <embed src="https://jjwelch420.github.io/Launcher/Ports/SWF/Super_Mario_63_2010 (1).swf" width="100%" height="100%">
+    <param name="movie" value="https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/Super_Mario_63_2010%20(1).swf">
+    <embed src="https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/Super_Mario_63_2010%20(1).swf" width="100%" height="100%">
 </body>
 </html>
 ]]></Content>
 </Module>
+
