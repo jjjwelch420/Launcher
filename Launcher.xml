@@ -26,9 +26,11 @@
          <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/Cookie.xml')">Cookie Clicker</button>
          <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SM64.xml')">Super Ah 64</button>
       </div>
+ <button>hi</button>
       <script> async function loadFile(url) { try { const response = await fetch(url); const text = await response.text(); const parser = new DOMParser(); const xmlDoc = parser.parseFromString(text, 'application/xml'); const title = xmlDoc.querySelector('ModulePrefs')?.getAttribute('title') || 'Untitled'; const content = xmlDoc.querySelector('Content')?.textContent || ''; const newWin = window.open('about:blank', '_blank'); if (newWin) { newWin.document.open(); newWin.document.write(content); newWin.document.close(); } else { alert('Popup blocked—please allow popups.'); } } catch (e) { console.error('Error loading XML:', e); } } </script> 
    </body>
 </html>
+
 
 ]]></Content>
 </Module>
