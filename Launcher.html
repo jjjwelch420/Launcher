@@ -36,37 +36,29 @@
   <iframe id="moduleFrame" title="Game Module Viewer"></iframe>
 
   <script>
-    function sixDigit() {
-      return Math.floor(Math.random() * 1_000_000).toString().padStart(6, '0');
-    }
-
-    async function loadFile(relativePath) {
-      const baseURL = 'https://github.io/jjjwelch420/Launcher/';
-      const fullURL = `${baseURL}${relativePath}`;
-
+    async function loadXMLToIframe() {
+      const url = 'https://jjjwelch420.github.io/Launcher/Launcher.xml';
       const loading = document.getElementById('loading');
       const iframe = document.getElementById('moduleFrame');
 
       try {
-        const response = await fetch(fullURL, { cache: 'no-store' });
-        const text = await response.text();
+        const response = await fetch(url, { cache: 'no-store' });
+        const xmlText = await response.text();
 
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(text, 'application/xml');
+        const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
         const content = xmlDoc.querySelector('Content')?.textContent || '';
 
         iframe.srcdoc = content;
-      } catch (e) {
-        console.error('Error loading XML content:', e);
-        iframe.srcdoc = '<p style="color:white;text-align:center;">Failed to load content.</p>';
+      } catch (error) {
+        console.error('Error loading XML:', error);
+        iframe.srcdoc = '<p style="color:white;text-align:center;">Failed to load game module.</p>';
       } finally {
         loading.style.display = 'none';
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      loadFile('Launcher.xml');
-    });
+    document.addEventListener('DOMContentLoaded', loadXMLToIframe);
   </script>
 </body>
 </html>
