@@ -66,7 +66,7 @@
     }
 
     async function loadFile(relativePath) {
-      const baseURL = 'https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/';
+      const baseURL = 'https://github.io/jjjwelch420/Launcher/';
       const fullURL = `${baseURL}${relativePath}?v=${sixDigit()}`;
 
       try {
