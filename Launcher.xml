@@ -2,35 +2,97 @@
 <Module>
 <ModulePrefs title="Google.m" />
 <Content type="html"><![CDATA[
-
- 
 <!DOCTYPE html> 
 <html>
-   <head>
-      <meta charset="UTF-8">
-      <title>Launcher</title>
-      <style> body { background-color: #1e1e1e; color: #f0f0f0; font-family: sans-serif; margin: 0; padding: 20px; } .button-container { display: flex; flex-wrap: wrap; gap: 16px; } .fancy-button { width: 200px; height: 60px; border: 2px solid #8a85ff; border-radius: 8px; background-color: #2b2b2b; color: #8a85ff; font-size: 15px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4); flex-shrink: 0; } .fancy-button:hover { background-color: #8a85ff; color: #1e1e1e; transform: translateY(-2px); box-shadow: 2px 6px 16px rgba(0, 0, 0, 0.5); } </style>
-   </head>
-   <body>
-      <div class="button-container">
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/basket-random.xml')">Basket Random</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/stick-war.xml')">Stick War</button> 
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/ARC.xml')">ARC</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/granny.xml')">Granny</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/granny-2.xml')">Granny 2</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/racing.xml')">Racing</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/runner.xml')">Sprinter Flash</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/minecraft.xml')">Minecraft</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/gunspin.xml')">Gun Spin</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/OvO.xml')">OvO</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/Cookie.xml')">Cookie Clicker</button>
-         <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SM64.xml')">Super Ah 64</button>
- <button class="fancy-button" onclick="loadFile('https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SM64.xml')">Super Ah 64</button>
-      </div>
-      <script> async function loadFile(url) { try { const response = await fetch(url); const text = await response.text(); const parser = new DOMParser(); const xmlDoc = parser.parseFromString(text, 'application/xml'); const title = xmlDoc.querySelector('ModulePrefs')?.getAttribute('title') || 'Untitled'; const content = xmlDoc.querySelector('Content')?.textContent || ''; const newWin = window.open('about:blank', '_blank'); if (newWin) { newWin.document.open(); newWin.document.write(content); newWin.document.close(); } else { alert('Popup blocked—please allow popups.'); } } catch (e) { console.error('Error loading XML:', e); } } </script> 
-   </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Launcher</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .fancy-button {
+      width: 200px;
+      height: 60px;
+      border: 2px solid #8a85ff;
+      border-radius: 8px;
+      background-color: #2b2b2b;
+      color: #8a85ff;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.4);
+      flex-shrink: 0;
+    }
+    .fancy-button:hover {
+      background-color: #8a85ff;
+      color: #1e1e1e;
+      transform: translateY(-2px);
+      box-shadow: 2px 6px 16px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <button class="fancy-button" onclick="loadFile('Ports/basket-random.xml')">Basket Random</button>
+    <button class="fancy-button" onclick="loadFile('Ports/stick-war.xml')">Stick War</button> 
+    <button class="fancy-button" onclick="loadFile('Ports/ARC.xml')">ARC</button>
+    <button class="fancy-button" onclick="loadFile('Ports/granny.xml')">Granny</button>
+    <button class="fancy-button" onclick="loadFile('Ports/granny-2.xml')">Granny 2</button>
+    <button class="fancy-button" onclick="loadFile('Ports/racing.xml')">Racing</button>
+    <button class="fancy-button" onclick="loadFile('Ports/runner.xml')">Sprinter Flash</button>
+    <button class="fancy-button" onclick="loadFile('Ports/minecraft.xml')">Minecraft</button>
+    <button class="fancy-button" onclick="loadFile('Ports/gunspin.xml')">Gun Spin</button>
+    <button class="fancy-button" onclick="loadFile('Ports/OvO.xml')">OvO</button>
+    <button class="fancy-button" onclick="loadFile('Ports/Cookie.xml')">Cookie Clicker</button>
+    <button class="fancy-button" onclick="loadFile('Ports/SM64.xml')">Super Ah 64</button>
+  </div>
+
+  <script>
+    function sixDigit() {
+      return Math.floor(Math.random() * 1_000_000).toString().padStart(6, '0');
+    }
+
+    async function loadFile(relativePath) {
+      const baseURL = 'https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/';
+      const fullURL = `${baseURL}${relativePath}?v=${sixDigit()}`;
+
+      try {
+        const response = await fetch(fullURL, { cache: 'no-store' });
+        const text = await response.text();
+
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(text, 'application/xml');
+
+        const title = xmlDoc.querySelector('ModulePrefs')?.getAttribute('title') || 'Untitled';
+        const content = xmlDoc.querySelector('Content')?.textContent || '';
+
+        const newWin = window.open('about:blank', '_blank');
+        if (newWin) {
+          newWin.document.open();
+          newWin.document.write(content);
+          newWin.document.close();
+        } else {
+          alert('Popup blocked—please allow popups.');
+        }
+      } catch (e) {
+        console.error('Error loading XML:', e);
+      }
+    }
+  </script>
+</body>
 </html>
-
-
 ]]></Content>
 </Module>
