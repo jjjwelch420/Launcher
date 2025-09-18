@@ -57,7 +57,7 @@
     <button class="fancy-button" onclick="loadFile('Ports/gunspin.xml')">Gun Spin</button>
     <button class="fancy-button" onclick="loadFile('Ports/OvO.xml')">OvO</button>
     <button class="fancy-button" onclick="loadFile('Ports/Cookie.xml')">Cookie Clicker</button>
-    <button class="fancy-button" onclick="loadFile('Ports/SM64.xml')">Super Ah 63</button>
+    <button class="fancy-button" onclick="loadFile('Ports/SM64.xml')">Super Ah 65</button>
   </div>
 
   <script>
