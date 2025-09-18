@@ -61,36 +61,32 @@
   </div>
 
   <script>
-    function sixDigit() {
-      return Math.floor(Math.random() * 1_000_000).toString().padStart(6, '0');
-    }
+    function loadFile(relativePath) {
+  const baseURL = 'https://jjjwelch420.github.io/Launcher/';
+  const fullURL = `${baseURL}${relativePath}`;
 
-    async function loadFile(relativePath) {
-      const baseURL = 'https://github.io/jjjwelch420/Launcher/';
-      const fullURL = `${baseURL}${relativePath}?v=${sixDigit()}`;
+  // Open a new about:blank window
+  const newWindow = window.open('about:blank', '_blank');
 
-      try {
-        const response = await fetch(fullURL, { cache: 'no-store' });
-        const text = await response.text();
+  // Fetch and inject content
+  fetch(fullURL)
+    .then(response => response.text())
+    .then(xmlText => {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+      const content = xmlDoc.querySelector('Content')?.textContent || '<p>Content not found.</p>';
 
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(text, 'application/xml');
+      newWindow.document.open();
+      newWindow.document.write(content);
+      newWindow.document.close();
+    })
+    .catch(error => {
+      console.error('Error loading XML:', error);
+      newWindow.document.write('<p style="color:red;">Failed to load content.</p>');
+      newWindow.document.close();
+    });
+}
 
-        const title = xmlDoc.querySelector('ModulePrefs')?.getAttribute('title') || 'Untitled';
-        const content = xmlDoc.querySelector('Content')?.textContent || '';
-
-        const newWin = window.open('about:blank', '_blank');
-        if (newWin) {
-          newWin.document.open();
-          newWin.document.write(content);
-          newWin.document.close();
-        } else {
-          alert('Popup blocked—please allow popups.');
-        }
-      } catch (e) {
-        console.error('Error loading XML:', e);
-      }
-    }
   </script>
 </body>
 </html>
