@@ -6,8 +6,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
   <title>Super Mario 63</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <style>
     html, body {
       margin: 0;
@@ -18,6 +18,18 @@
     }
 
     #flash-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    }
+
+    ruffle-player {
       width: 100%;
       height: 100%;
     }
@@ -33,15 +45,29 @@
     window.addEventListener("DOMContentLoaded", () => {
       const ruffle = window.RufflePlayer.newest();
       const player = ruffle.createPlayer();
+
+      // Performance and autoplay settings
+      player.config = {
+        autoplay: "on",
+        letterbox: "on",
+        backgroundColor: "#000000",
+        scale: "showAll",
+        quality: "high",
+        preferredRenderer: "webgl",
+        wmode: "direct",
+        reduceMotion: true,
+        unmuteOverlay: false
+      };
+
       document.getElementById("flash-container").appendChild(player);
       player.load("https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/Super_Mario_63_2010%20(1).swf");
     });
   </script>
 </body>
 </html>
-
 ]]></Content>
 </Module>
+
 
 
 
