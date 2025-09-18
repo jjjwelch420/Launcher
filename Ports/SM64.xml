@@ -2,38 +2,46 @@
 <Module>
 <ModulePrefs title="Google.com" />
 <Content type="html"><![CDATA[
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            background-color: black; /* Optional: set background to black */
-            height: 100%;
-            overflow: hidden;
-        }
-        #flash-container {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+  <title>Super Mario 63</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #flash-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
-
 <body>
-<script src="https://cdn.jsdelivr.net/gh/somer-sheff-73/xv@main/ruffle.js"></script>
+  <div id="flash-container"></div>
 
-<div id="flash-container">
-    <object type="application/x-shockwave-flash" data="https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/Super_Mario_63_2010%20(1).swf" width="100%" height="100%">
-        <param name="movie" value="https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/Super_Mario_63_2010%20(1).swf">
-        <param name="autoplay" value="true">
-    </object>
-</div>
+  <!-- Load Ruffle from official CDN -->
+  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("DOMContentLoaded", () => {
+      const ruffle = window.RufflePlayer.newest();
+      const player = ruffle.createPlayer();
+      document.getElementById("flash-container").appendChild(player);
+      player.load("https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/Super_Mario_63_2010%20(1).swf");
+    });
+  </script>
 </body>
 </html>
+
 ]]></Content>
 </Module>
+
 
 
