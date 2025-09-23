@@ -49,14 +49,14 @@
       // Performance and autoplay settings
       player.config = {
         autoplay: "on",
-        letterbox: "on",
-        backgroundColor: "#000000",
-        scale: "showAll",
-        quality: "high",
-        preferredRenderer: "webgl",
-        wmode: "direct",
-        reduceMotion: true,
-        unmuteOverlay: false
+  letterbox: "on",
+  backgroundColor: "#000000",
+  scale: "showAll",
+  quality: "high",
+  preferredRenderer: "webgl",
+  wmode: "direct",
+  reduceMotion: false, // ← this is the key change
+  unmuteOverlay: false
       };
 
       document.getElementById("flash-container").appendChild(player);
@@ -67,6 +67,7 @@
 </html>
 ]]></Content>
 </Module>
+
 
 
 
