@@ -2,8 +2,8 @@
 <Module>
 <ModulePrefs title="Google.m" />
 <Content type="html"><![CDATA[
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Launcher</title>
@@ -60,36 +60,41 @@
     <button class="fancy-button" onclick="loadFile('Ports/SM64.xml')">Super Ah 64</button>
     <button class="fancy-button" onclick="loadFile('Ports/OvO-beta.xml')">OvO (W.I.P)</button>
   </div>
-
   <script>
-    function loadFile(relativePath) {
-  const baseURL = 'https://jjjwelch420.github.io/Launcher/';
-  const fullURL = `${baseURL}${relativePath}`;
+    const ROOT_URL = 'https://jjjwelch420.github.io/Launcher/';
 
-  // Open a new about:blank window
-  const newWindow = window.open('about:blank', '_blank');
+    async function fetchHTMLFromXML(url) {
+      try {
+        const response = await fetch(url);
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+        const contentNode = xmlDoc.querySelector('Content');
+        return contentNode?.textContent || '<p>Error loading content</p>';
+      } catch (error) {
+        console.error('Failed to fetch XML:', error);
+        return '<p>Failed to load XML content</p>';
+      }
+    }
 
-  // Fetch and inject content
-  fetch(fullURL)
-    .then(response => response.text())
-    .then(xmlText => {
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
-      const content = xmlDoc.querySelector('Content')?.textContent || '<p>Content not found.</p>';
+    async function loadFile(relativePath) {
+      const fullURL = ROOT_URL + relativePath;
+      const htmlContent = await fetchHTMLFromXML(fullURL);
+      const newTab = window.open('about:blank', '_blank');
+      if (newTab) {
+        newTab.document.open();
+        newTab.document.write(htmlContent);
+        newTab.document.close();
+      } else {
+        alert('Popup blocked. Please allow popups for this site.');
+      }
+    }
 
-      newWindow.document.open();
-      newWindow.document.write(content);
-      newWindow.document.close();
-    })
-    .catch(error => {
-      console.error('Error loading XML:', error);
-      newWindow.document.write('<p style="color:red;">Failed to load content.</p>');
-      newWindow.document.close();
-    });
-}
-
+    // Example usage:
+    loadFile('Ports/OvO.xml');
   </script>
 </body>
 </html>
+
 ]]></Content>
 </Module>
