@@ -90,7 +90,7 @@
     }
 
     // Example usage:
-    loadFile('Ports/OvO.xml');
+    
   </script>
 </body>
 </html>
