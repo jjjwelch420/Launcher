@@ -1,48 +1,54 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <title>Play Ported Games</title>
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+    }
+
     iframe {
+      border: none;
       width: 100%;
-      height: 500px;
-      border: 1px solid #ccc;
+      height: 100%;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <h1>Loaded HTML from XML</h1>
-  <iframe id="contentFrame"></iframe>
+  <iframe id="moduleFrame"></iframe>
 
   <script>
-    async function loadXMLContent() {
+    async function loadFile(url) {
       try {
-        const response = await fetch('https://jjjwelch420.github.io/Launcher/Launcher.xml');
-        const xmlText = await response.text();
+        const response = await fetch(url);
+        const text = await response.text();
 
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+        const xmlDoc = parser.parseFromString(text, 'application/xml');
 
-        const contentNode = xmlDoc.querySelector('content');
-        if (!contentNode) {
-          throw new Error('No <content> tag found in XML.');
-        }
+        const content = xmlDoc.querySelector('Content')?.textContent || '';
 
-        const htmlContent = contentNode.textContent;
+        const iframe = document.getElementById('moduleFrame');
+        const iframeDoc = iframe.contentWindow.document;
 
-        const iframe = document.getElementById('contentFrame');
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
         iframeDoc.open();
-        iframeDoc.write(htmlContent);
+        iframeDoc.write(content);
         iframeDoc.close();
-      } catch (error) {
-        console.error('Error loading XML:', error);
-        document.body.insertAdjacentHTML('beforeend', `<p style="color:red;">${error.message}</p>`);
+      } catch (e) {
+        console.error('Error loading XML content:', e);
       }
     }
 
-    loadXMLContent();
+    // Load content on page load
+    window.onload = () => {
+      loadFile('https://jjjwelch420.github.io/Launcher/Launcher.xml');
+    };
   </script>
 </body>
 </html>
