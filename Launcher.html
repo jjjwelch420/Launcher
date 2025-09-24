@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>XML Loader</title>
+  <title>Play Ported Games</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
     iframe {
       width: 100%;
-      height: 100%;
-      border: none;
+      height: 500px;
+      border: 1px solid #ccc;
     }
   </style>
 </head>
 <body>
+  <h1>Loaded HTML from XML</h1>
   <iframe id="contentFrame"></iframe>
 
   <script>
@@ -24,18 +20,25 @@
       try {
         const response = await fetch('https://jjjwelch420.github.io/Launcher/Launcher.xml');
         const xmlText = await response.text();
+
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
-        const contentNode = xmlDoc.querySelector('Content');
-        const htmlContent = contentNode?.textContent || '<p>Error loading content</p>';
+
+        const contentNode = xmlDoc.querySelector('content');
+        if (!contentNode) {
+          throw new Error('No <content> tag found in XML.');
+        }
+
+        const htmlContent = contentNode.textContent;
 
         const iframe = document.getElementById('contentFrame');
-        const doc = iframe.contentDocument || iframe.contentWindow.document;
-        doc.open();
-        doc.write(htmlContent);
-        doc.close();
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        iframeDoc.open();
+        iframeDoc.write(htmlContent);
+        iframeDoc.close();
       } catch (error) {
-        console.error('Failed to load XML:', error);
+        console.error('Error loading XML:', error);
+        document.body.insertAdjacentHTML('beforeend', `<p style="color:red;">${error.message}</p>`);
       }
     }
 
