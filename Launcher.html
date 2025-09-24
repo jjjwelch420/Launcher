@@ -22,7 +22,7 @@
   <script>
     async function loadXMLContent() {
       try {
-        const response = await fetch('https://github.io/jjjwelch420/Launcher/Launcher.xml');
+        const response = await fetch('https://jjjwelch420.github.io/Launcher/Launcher.xml');
         const xmlText = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
