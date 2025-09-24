@@ -58,6 +58,7 @@
     <button class="fancy-button" onclick="loadFile('Ports/OvO.xml')">OvO</button>
     <button class="fancy-button" onclick="loadFile('Ports/Cookie.xml')">Cookie Clicker</button>
     <button class="fancy-button" onclick="loadFile('Ports/SM64.xml')">Super Ah 64</button>
+    <button class="fancy-button" onclick="loadFile('Ports/Drift-RU.xml')">Drift Hunters</button>
   </div>
   <script>
     const ROOT_URL = 'https://jjjwelch420.github.io/Launcher/';
