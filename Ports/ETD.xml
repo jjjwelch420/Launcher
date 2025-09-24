@@ -60,7 +60,7 @@
       };
 
       document.getElementById("flash-container").appendChild(player);
-      player.load("https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/EarnToDie.swf");
+      player.load("https://archive.org/download/earn-to-die-flash-game-series/earntodie.swf");
     });
   </script>
 </body>
