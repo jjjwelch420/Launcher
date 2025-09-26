@@ -60,7 +60,7 @@
       };
 
       document.getElementById("flash-container").appendChild(player);
-      player.load("https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/swfs/riddleschool.swf");
+      player.load("https://cdn.jsdelivr.net/gh/jjjwelch420/Launcher@main/Ports/SWF/riddleschool.swf");
     });
   </script>
 </body>
