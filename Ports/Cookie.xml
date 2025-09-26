@@ -5,6 +5,40 @@
 
 <html>
 <head>
+    <script>
+// wakelock.js
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active');
+
+    wakeLock.addEventListener('release', () => {
+      console.log('Wake Lock was released');
+    });
+  } catch (err) {
+    console.error(`Wake Lock error: ${err.name}, ${err.message}`);
+  }
+}
+
+// Re-request on visibility change
+document.addEventListener('visibilitychange', () => {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
+    requestWakeLock();
+  }
+});
+
+// Request on page load
+window.addEventListener('load', () => {
+  if ('wakeLock' in navigator) {
+    requestWakeLock();
+  } else {
+    console.warn('Wake Lock API not supported in this browser.');
+  }
+});
+
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
