@@ -48,7 +48,7 @@
       }
     }
 
-      loadFile('https://jjjwelch420.github.io/Launcher-S/Launcher.xml');
+      loadFile('https://cdn.statically.io/gh/jjjwelch420/Launcher-S@main/Launcher.xml');
   </script>
 </body>
 </html>
